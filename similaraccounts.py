@@ -1,8 +1,10 @@
 import streamlit as st
 from apify_client import ApifyClient
+from dotenv import load_dotenv
+import os
 
-# ——— Config ———
-API_KEY = st.secrets["apify"]["api_key"]
+load_dotenv()
+API_KEY = os.getenv("APIFY_API_KEY")
 client = ApifyClient(API_KEY)
 
 st.set_page_config(layout="wide")
